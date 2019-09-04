@@ -55,6 +55,16 @@ def test_plot(data, weights):
     return None
 
 
+def loss_plot(data):
+    plt.plot(data)
+    plt.title("Loss function")
+    plt.xlabel("Epochs")
+    plt.ylabel("Loss")
+    plt.savefig('03_loss.png')
+    plt.clf()
+    return None
+
+
 """==============================================================================
                                Main
 =============================================================================="""
@@ -81,7 +91,9 @@ def main():
     x = train_data[['x1', 'x2']].values
     y = train_data.loc[:, 'label']
     model = Perceptron(x.shape[1])  # Initialize model with two features.
-    w = model.train(x, y)  # Train model.
+    w, loss = model.train(x, y)  # Train model.
+
+    loss_plot(loss)
 
     # Validate model generating a new data set. ================================
     plot_line(0.0, 1.0, params)
