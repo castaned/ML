@@ -59,12 +59,18 @@ void ZtoEE_Delphes(const char *inputFile)
 
   // Show resulting histograms
   TCanvas *c1 = new TCanvas("c1", "c1");
+  histMass-> GetXaxis()->SetTitle("Mass [GeV]");
+  histMass-> GetYaxis()->SetTitle("Entries");
   histMass->Draw();
   c1 -> SaveAs("mass.png");
   TCanvas *c2 = new TCanvas("c3", "c3");
+  histPT1-> GetXaxis()->SetTitle("PT [GeV]");
+  histPT1-> GetYaxis()->SetTitle("Entries");
   histPT1 ->Draw();
   c2 -> SaveAs("pt1.png");
   TCanvas *c3 = new TCanvas("c3", "c3");
+  histPT2-> GetXaxis()->SetTitle("PT [GeV]");
+  histPT2-> GetYaxis()->SetTitle("Entries");
   histPT2 ->Draw();
   c3 -> SaveAs("pt2.png");
   
