@@ -1,0 +1,113 @@
+edgar@edgar-N501VW:~/GitHub/ML/ZtoEE$ root -l fitZboson.C
+root [0] 
+Processing fitZboson.C...
+
+RooFit v3.60 -- Developed by Wouter Verkerke and David Kirkby 
+                Copyright (C) 2000-2013 NIKHEF, University of California & Stanford University
+                All rights reserved, please read http://roofit.sourceforge.net/license.txt
+
+[#1] INFO:DataHandling -- RooDataHist::adjustBinning(Zmass): fit range of variable x expanded to nearest bin boundaries: [40,140] --> [40,140]
+[#1] INFO:Minization -- RooMinimizer::optimizeConst: activating const optimization
+[#1] INFO:Minization --  The following expressions will be evaluated in cache-and-track mode: (bw,pol5)
+ **********
+ **    1 **SET PRINT           1
+ **********
+ **********
+ **    2 **SET NOGRAD
+ **********
+ PARAMETER DEFINITIONS:
+    NO.   NAME         VALUE      STEP SIZE      LIMITS
+     1 a0           5.00000e+02  1.00000e+02    0.00000e+00  1.00000e+03
+     2 coe_bw       1.00000e+00  1.00000e-01    0.00000e+00  1.00000e+00
+ MINUIT WARNING IN PARAM DEF
+ ============== STARTING VALUE IS AT LIMIT.
+ MINUIT WARNING IN PARAMETR
+ ============== VARIABLE2 IS AT ITS UPPER ALLOWED LIMIT.
+ MINUIT WARNING IN PARAMETR
+ ============== VARIABLE2 BROUGHT BACK INSIDE LIMITS.
+     3 m0           9.00000e+01  2.00000e+00    8.00000e+01  1.00000e+02
+     4 width        6.00000e+00  1.00000e+00    0.00000e+00  1.00000e+01
+ **********
+ **    3 **SET ERR         0.5
+ **********
+ **********
+ **    4 **SET PRINT           1
+ **********
+ **********
+ **    5 **SET STR           1
+ **********
+ NOW USING STRATEGY  1: TRY TO BALANCE SPEED AGAINST RELIABILITY
+ **********
+ **    6 **MIGRAD        2000           1
+ **********
+ FIRST CALL TO USER FUNCTION AT NEW START POINT, WITH IFLAG=4.
+ MINUIT WARNING IN MIGrad    
+ ============== VARIABLE2 IS AT ITS UPPER ALLOWED LIMIT.
+ START MIGRAD MINIMIZATION.  STRATEGY  1.  CONVERGENCE WHEN EDM .LT. 1.00e-03
+ FCN=1229.49 FROM MIGRAD    STATUS=INITIATE       16 CALLS          17 TOTAL
+                     EDM= unknown      STRATEGY= 1      NO ERROR MATRIX       
+  EXT PARAMETER               CURRENT GUESS       STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  a0           5.00000e+02   1.00000e+02   2.01358e-01  -2.63761e-10
+   2  coe_bw       9.99999e-01   1.00000e-01   3.20776e-01  -1.89828e-01
+   3  m0           9.00000e+01   2.00000e+00   2.01358e-01  -1.34806e+02
+   4  width        6.00000e+00   1.00000e+00   2.05758e-01   5.41747e+01
+                               ERR DEF= 0.5
+ MIGRAD MINIMIZATION HAS CONVERGED.
+ MIGRAD WILL VERIFY CONVERGENCE AND ERROR MATRIX.
+ COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=1215.62 FROM MIGRAD    STATUS=CONVERGED      71 CALLS          72 TOTAL
+                     EDM=3.95232e-05    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  a0           7.06009e+02   8.30279e+02   5.00000e-01  -2.27374e-12
+   2  coe_bw       1.00000e+00   3.53489e-03   2.88847e-03** at limit **
+   3  m0           9.04536e+01   1.62926e-01   3.91185e-04  -3.23931e-01
+   4  width        4.40782e+00   2.92023e-01   1.39871e-03   4.57031e-02
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR=  4    ERR DEF=0.5
+  3.804e+16  9.089e+00  2.529e+02  2.994e+02 
+  9.089e+00  2.441e-10 -2.586e-10 -4.716e-09 
+  2.529e+02 -2.586e-10  2.655e-02  8.499e-04 
+  2.994e+02 -4.716e-09  8.499e-04  8.538e-02 
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3      4
+        1  0.00298   1.000  0.003  0.000  0.000
+        2  0.00316   0.003  1.000 -0.000 -0.001
+        3  0.01785   0.000 -0.000  1.000  0.018
+        4  0.01788   0.000 -0.001  0.018  1.000
+ **********
+ **    7 **SET ERR         0.5
+ **********
+ **********
+ **    8 **SET PRINT           1
+ **********
+ **********
+ **    9 **HESSE        2000
+ **********
+ COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=1215.62 FROM HESSE     STATUS=OK             25 CALLS          97 TOTAL
+                     EDM=3.95279e-05    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                INTERNAL      INTERNAL  
+  NO.   NAME      VALUE            ERROR       STEP SIZE       VALUE   
+   1  a0           7.06009e+02   6.06614e+02   5.10000e-01   4.24667e-01
+   2  coe_bw       1.00000e+00   3.53494e-03   5.77693e-04   1.57053e+00
+                                 WARNING -   - ABOVE PARAMETER IS AT LIMIT.
+   3  m0           9.04536e+01   1.62925e-01   7.82369e-05   4.53720e-02
+   4  width        4.40782e+00   2.92021e-01   2.79742e-04  -1.18715e-01
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR=  4    ERR DEF=0.5
+  3.957e+16  2.492e-01  1.315e+03  4.102e+01 
+  2.492e-01  2.441e-10 -5.706e-12 -1.048e-10 
+  1.315e+03 -5.706e-12  2.655e-02  8.301e-04 
+  4.102e+01 -1.048e-10  8.301e-04  8.537e-02 
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3      4
+        1  0.00009   1.000  0.000  0.000  0.000
+        2  0.00008   0.000  1.000 -0.000 -0.000
+        3  0.01744   0.000 -0.000  1.000  0.017
+        4  0.01744   0.000 -0.000  0.017  1.000
+[#1] INFO:Minization -- RooMinimizer::optimizeConst: deactivating const optimization
+root [1] Info in <TCanvas::Print>: pdf file ./c1.pdf has been created
+
+
