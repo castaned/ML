@@ -58,12 +58,15 @@ void ZtoEE_Delphes(const char *inputFile)
   }
 
   // Show resulting histograms
+  TFile *f = new TFile("mass.root", "recreate");
   TCanvas *c1 = new TCanvas("c1", "c1");
   histMass-> GetXaxis()-> SetTitle("Mass [GeV]");
   histMass-> GetYaxis()-> SetTitle("Entries");
   histMass-> GetXaxis()-> SetTitleSize(0.05);
   histMass-> GetYaxis()-> SetTitleSize(0.05);  
   histMass->Draw();
+  histMass -> Write();
+  f -> Close();
   c1 -> SaveAs("mass.png");
   
   TCanvas *c2 = new TCanvas("c3", "c3");
