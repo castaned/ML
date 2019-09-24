@@ -46,7 +46,7 @@ void ZtoEE_Delphes(const char *inputFile)
 
     Electron *e1, *e2;
 
-    // If event contains at least 2 muons
+    // If event contains at least 2 electrons
     if(branchElectron->GetEntries() > 1)
     {
       // Take first two electrons
@@ -54,12 +54,17 @@ void ZtoEE_Delphes(const char *inputFile)
       e2 = (Electron  *) branchElectron->At(1);
       dR_val = sqrt( pow((e2->Eta)-(e1->Eta),2) + pow((e2->Phi)-(e1->Phi),2) );
 
-
       // Plot their invariant mass
       histMass->Fill(((e1->P4()) + (e2->P4())).M());
       histPT1 -> Fill(e1 -> PT);
       histPT2 -> Fill(e2 -> PT);
       histDR  -> Fill(dR_val);
+      
+      if (dR_val>3.13 && dR_val<3.15 ) {
+        cout << "Back2back. Event: " << entry << endl;
+      } else if (dR_val < 2.0) {
+        cout << "Parallel particles. Event: " << entry << endl;
+      }
 
     }
 
@@ -93,7 +98,6 @@ void ZtoEE_Delphes(const char *inputFile)
   histPT2-> GetYaxis()-> SetTitleSize(0.05);  
   histPT2 ->Draw();
   c3 -> SaveAs("pt2.png");
-  
   
   TCanvas *c4 = new TCanvas("c4", "c4");
   histDR-> GetXaxis()->SetTitle("#Delta R");
